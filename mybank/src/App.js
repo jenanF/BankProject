@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Register from './Components/Register';
+import Register from './Components/Registerr';
 import Login from './Components/Login';
 import Nav from './Components/Nav';
 import Home from './Components/Home';
