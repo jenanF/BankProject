@@ -6,7 +6,7 @@ const UserList = (props) => {
             <img src={props.image}></img>
             <h3>{props.name}</h3>
             <p>Balance: {props.balance} </p>
-            <button>Transfer</button>
+            <button onClick={props.onClick} name={props.key} id={props.key}>Transfer</button>
         </div>
     )
 }
