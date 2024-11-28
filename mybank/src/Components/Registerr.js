@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Register } from '../API/auth'
 import { useState } from 'react'
-
+import logo from '../images/codedbanklogo.jpg'
+import '../style.css'
 const Registerr = () => {
 
     const [formData, setFormData] = useState({ username: '', image: '', password: '' });
@@ -22,18 +23,24 @@ const Registerr = () => {
     };
 
     return (
-        <div>
-            <h1>Register your Account</h1>
-            <p>if you do have an account <Link to={'/login'}>Login here</Link></p>
-            <label>Username</label>
-            <input title='Username' name="username" placeholder='enter username' type='text' onChange={handleChange}></input>
+        <div className='reg-main-div' >
 
-            <label>Password</label>
-            <input title='password' name="password" placeholder='enter password' type='password' onChange={handleChange}></input>
+            <img className='logo' src={logo}></img>
+            <div className='reg-div'>
 
-            <input type='file' name="image" onChange={handleChange}></input>
 
-            <button onClick={handleSubmit} id='register-btn'>Register</button>
+                <h1>Register your Account</h1>
+                <p className='login-text'>if you do have an account <Link to={'/login'}>Login here</Link></p>
+                <label>Username</label>
+                <input className='input-reg' title='Username' name="username" placeholder='enter username' type='text' onChange={handleChange}></input>
+
+                <label>Password</label>
+                <input className='input-reg' title='password' name="password" placeholder='enter password' type='password' onChange={handleChange}></input>
+
+                <input className='input-reg' type='file' name="image" onChange={handleChange}></input>
+
+                <button className='reg-button' onClick={handleSubmit} id='register-btn'>Register</button>
+            </div>
         </div>
     )
 }

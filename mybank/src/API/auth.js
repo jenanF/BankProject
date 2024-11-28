@@ -1,5 +1,6 @@
 import instance from ".";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -24,4 +25,11 @@ const login = async (formData) => {
     return data;
 };
 
-export { Register, login };
+const Logout = async (formData) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem('login data')
+
+
+};
+
+export { Register, login, Logout };

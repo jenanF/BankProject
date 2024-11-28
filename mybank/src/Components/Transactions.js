@@ -1,13 +1,31 @@
 import React from 'react'
 import Footer from './Footer'
 import TransactionListItem from './TransactionListItem'
+import instance from '../API'
+import { useQuery } from '@tanstack/react-query'
+import Nav from './Nav'
+
+
+async function getMyTransactions() {
+    const response = await instance.get('/mini-project/api/transactions/my');
+    console.log(response.data);
+    return response.data;
+}
+
 
 const Transactions = () => {
+
+    const { data, isFetching, isSuccess, refetch } = useQuery({
+        queryKey: ['transactionsList'],
+        queryFn: getMyTransactions,
+    });
+
     return (
         <div>
+            <Nav />
             <div style={{ display: 'flex' }}>
                 <input type='text' placeholder='search'></input>
-                <button>Search</button>
+                <button onClick={() => { console.log(data) }}>Search</button>
             </div>
 
             <div style={{ display: 'flex' }}>

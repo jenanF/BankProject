@@ -1,11 +1,11 @@
 import React from 'react'
 
-const UserList = () => {
+const UserList = (props) => {
     return (
         <div>
-            <img></img>
-            <h3>name</h3>
-            <p>Balance: </p>
+            <img src={props.image}></img>
+            <h3>{props.name}</h3>
+            <p>Balance: {props.balance} </p>
             <button>Transfer</button>
         </div>
     )
