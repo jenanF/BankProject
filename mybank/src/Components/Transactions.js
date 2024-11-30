@@ -5,6 +5,7 @@ import instance from '../API'
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import Nav from './Nav'
+import '../style.css'
 
 
 async function getMyTransactions() {
@@ -65,38 +66,40 @@ const Transactions = () => {
     return (
         <div>
             <Nav />
-            <div style={{ display: 'flex' }}>
-                <input type='text' placeholder='search'></input>
-                <button onClick={() => { console.log(data) }}>Search</button>
-            </div>
+            <div className='transaction-main-div'>
+                <div style={{ display: 'flex' }}>
+                    <input type='text' placeholder='search'></input>
+                    <button onClick={() => { console.log(data) }}>Search</button>
+                </div>
 
-            <div style={{ display: 'flex', alignItems: 'baseline' }}>
-                <h2>Filter:</h2>
+                <div style={{ display: 'flex', alignItems: 'baseline' }}>
+                    <h2>Filter:</h2>
 
-                <input type='radio' id='all' name="filter" value='all' checked={filter === 'all'} // Check if selected
-                    onChange={handleFilterChange}></input>
-                <lable>All</lable>
-                <input type='radio' id='deposit' name='filter' value='deposit' checked={filter === 'deposit'} // Check if selected
-                    onChange={handleFilterChange}></input>
-                <lable>Deposit</lable>
-                <input type='radio' id='withdraw' name='filter' value='withdraw' checked={filter === 'withdraw'} // Check if selected
-                    onChange={handleFilterChange}></input>
-                <lable>Withdraw</lable>
-                <input type='radio' id='transfer' name='filter' value='transfer' checked={filter === 'transfer'} // Check if selected
-                    onChange={handleFilterChange}></input>
-                <lable>Transfer</lable>
-                {/* <input type='radio' id='date' name='filter' value='date' checked={filter === 'date'} // Check if selected
+                    <input type='radio' id='all' name="filter" value='all' checked={filter === 'all'} // Check if selected
+                        onChange={handleFilterChange}></input>
+                    <lable>All</lable>
+                    <input type='radio' id='deposit' name='filter' value='deposit' checked={filter === 'deposit'} // Check if selected
+                        onChange={handleFilterChange}></input>
+                    <lable>Deposit</lable>
+                    <input type='radio' id='withdraw' name='filter' value='withdraw' checked={filter === 'withdraw'} // Check if selected
+                        onChange={handleFilterChange}></input>
+                    <lable>Withdraw</lable>
+                    <input type='radio' id='transfer' name='filter' value='transfer' checked={filter === 'transfer'} // Check if selected
+                        onChange={handleFilterChange}></input>
+                    <lable>Transfer</lable>
+                    {/* <input type='radio' id='date' name='filter' value='date' checked={filter === 'date'} // Check if selected
                     onChange={handleDateChange}></input>
                 <lable>By Date</lable> */}
-            </div>
+                </div>
 
-            <div style={{ display: 'flex' }}>
-                <lable>From</lable>
-                <input type='date' name='fromDate' onChange={handleDateChange}></input>
+                <div className='dates-div' >
+                    <lable>From</lable>
+                    <input type='date' name='fromDate' onChange={handleDateChange}></input>
 
-                <lable>To</lable>
-                <input type='date' name='toDate' onChange={handleDateChange}></input>
+                    <lable>To</lable>
+                    <input type='date' name='toDate' onChange={handleDateChange}></input>
 
+                </div>
             </div>
 
             {/* {filter === 'all' ? transactionList : filteredList.length === 0 ? `There is no ${filter} transactions` : filteredList} */}
@@ -107,6 +110,7 @@ const Transactions = () => {
 
             <Footer />
         </div>
+
     )
 }
 

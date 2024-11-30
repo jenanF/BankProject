@@ -141,9 +141,9 @@ cite {
     border-width: 2px;
     border-style: solid;
     padding: 30px;
-    border-radius: 10%;
-    height: 200px;
-    width: 350px;
+    border-radius: 20px;
+    height: 250px;
+    width: 500px;
 }
 
 .balance {
@@ -162,7 +162,8 @@ cite {
     padding: 30px;
     border-radius: 20px;
     height: fit-content;
-    width: 350px;
+    width: 500px;
+    margin-top: 30px;
 }
 
 .submit-btn {
@@ -188,4 +189,75 @@ cite {
 h3 {
     text-align: center;
     size: 40px;
+}
+
+
+.transactions-items-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px;
+    border-radius: 20px;
+    border-color: #13243E;
+    border-width: 1;
+    border-style: solid;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-top: 20px;
+}
+
+.transaction-main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dates-div {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.users-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    border-color: #13243E;
+    border-width: 1;
+    border-style: solid;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.image-user {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    align-items: center;
+}
+
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.top-div-users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }

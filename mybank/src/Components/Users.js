@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query"
 import { useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
 import Nav from './Nav'
+import "../style.css"
 
 
 async function getUsers() {
@@ -42,31 +43,39 @@ const Users = () => {
 
 
     const usersList = data?.map((user) => {
-        return <UserList name={user.username} balance={user.balance} image={user.image} key={user._id} onClick={() => { setRecipient(user.username); handleTransfer() }} />
+        return <UserList name={user.username} balance={user.balance} image={user.image} key={user._id} onClick={() => { setRecipient(user.username); setUserBalance(user.balance); handleTransfer() }} />
 
     })
 
     const handleTransfer = async () => {
+        console.log(success)
+        refetching();
         if (!amount) {
             return alert('Please enter an amount.');
+        } else {
+            return amount + userBalance;
         }
 
-        const amountTransfered = amount;
-        try {
-            const response = await TransferToUser(amountTransfered, recipient);  // Call the transfer function
-            console.log(response);
-            alert('Transfer successful!');
-        } catch (error) {
-            console.error(error);
+        // const amountTransfered = amount;
+        // try {
+        //     const response = await TransferToUser(amountTransfered, recipient);  // Call the transfer function
+        //     console.log(response);
+        //     alert('Transfer successful!');
+        // } catch (error) {
+        //     console.error(error);
 
-        }
+        // }
+
+
     }
     return (
         <div>
             <Nav />
-            <p>Amount</p>
-            <input onChange={(e) => { setAmount(e.target.value) }} placeholder='amount' type='number' value={amount}></input>
-            <div>{usersList}</div>
+            <div className='top-div-users'>
+                <p>Amount</p>
+                <input onChange={(e) => { setAmount(e.target.value) }} placeholder='amount' type='number' value={amount}></input>
+            </div>
+            <div className='user-list'>{usersList}</div>
             <Footer />
         </div>
     )
